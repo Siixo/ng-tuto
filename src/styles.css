@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+:root {
+  --color-neon-green: #00ff88;
+  --color-tokyo-bg: #1a1a2e;
+  --color-tokyo-purple: #16213e;
+}
+
+@keyframes pulse-heart {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-heart {
+  animation: pulse-heart 2s infinite;
+}
