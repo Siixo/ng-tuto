@@ -1,172 +1,253 @@
-<!-- Main Profile Card -->
-<div class="max-w-lg mx-auto mb-8">
-  <div
-    class="bg-gradient-to-br from-purple-900/90 to-indigo-900/90 backdrop-blur-xl rounded-3xl border border-green-400/30 shadow-2xl p-8 relative overflow-hidden hover:shadow-green-400/20 hover:shadow-2xl transition-all duration-500"
-  >
-    <!-- Animated glow border -->
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/10 to-transparent rounded-3xl animate-pulse"
-    ></div>
-    <div
-      class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-400 to-transparent"
-    ></div>
-
-    <div class="relative z-10 space-y-6">
-      <!-- Title -->
-      <h1
-        class="text-4xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg"
+<!-- Container principal avec espacement cohérent -->
+<div class="min-h-screen p-6">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Main Profile Card -->
+    <div class="group">
+      <div
+        class="relative bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl overflow-hidden hover:border-emerald-400/50 transition-all duration-500 hover:shadow-emerald-400/10 hover:shadow-2xl"
       >
-        {{ title }}
-      </h1>
+        <!-- Glow effect background -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-transparent to-emerald-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></div>
 
-      <!-- Description -->
-      <p class="text-gray-200 text-lg leading-relaxed font-medium">
-        {{ description }}
-      </p>
+        <!-- Top accent line -->
+        <div
+          class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent"
+        ></div>
 
-      <!-- Date -->
-      <div class="flex items-center gap-2 text-sm text-gray-400">
-        <span class="text-green-400">📅</span>
-        <span>{{ currentDate }}</span>
-      </div>
+        <div class="relative z-10 p-8 space-y-6">
+          <!-- Header Section -->
+          <div class="flex items-start justify-between">
+            <div class="space-y-4">
+              <h1
+                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-purple-400 drop-shadow-lg"
+              >
+                {{ title }}
+              </h1>
+              <p class="text-slate-300 text-lg leading-relaxed max-w-2xl">
+                {{ description }}
+              </p>
+            </div>
+            <div class="flex flex-col items-end space-y-2 text-right">
+              <div class="flex items-center gap-2 text-sm text-slate-400">
+                <span class="text-emerald-400">📅</span>
+                <span>{{ currentDate }}</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-emerald-400 text-xl">👤</span>
+                <span class="font-semibold text-emerald-400 text-lg">{{ username }}</span>
+              </div>
+            </div>
+          </div>
 
-      <!-- Username -->
-      <div class="flex items-center gap-3">
-        <span class="text-green-400 text-xl">👤</span>
-        <span class="font-bold text-green-400 text-lg tracking-wide">{{ username }}</span>
-      </div>
+          <!-- Hobbies Section -->
+          <div class="pt-6 border-t border-slate-700/50">
+            <h2 class="text-2xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+              <span class="text-emerald-400 text-2xl">🎯</span>
+              <span>Mes hobbies</span>
+            </h2>
 
-      <!-- Hobbies Section -->
-      <div class="pt-4 border-t border-green-400/20">
-        <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <span class="text-green-400 text-xl">🎯</span>
-          <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            >Mes hobbies</span
-          >
-        </h2>
-
-        <ul class="space-y-3">
-          <li
-            *ngFor="let item of hobbies | keyvalue"
-            class="flex items-center justify-between p-4 bg-purple-800/30 rounded-xl border border-green-400/20 hover:border-green-400/50 hover:bg-purple-700/40 transition-all duration-300 group hover:scale-[1.02] hover:shadow-lg hover:shadow-green-400/10"
-          >
-            <span
-              class="font-semibold capitalize text-gray-200 group-hover:text-white transition-colors"
-            >
-              {{ item.key }}
-            </span>
-            <span
-              class="px-3 py-1.5 bg-green-400/15 border border-green-400/40 rounded-full text-green-400 text-sm font-bold tracking-wide group-hover:bg-green-400/25 group-hover:text-green-300 transition-all"
-            >
-              {{ item.value }}
-            </span>
-          </li>
-        </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div
+                *ngFor="let item of hobbies | keyvalue"
+                class="group/item relative bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700/50 p-4 hover:border-emerald-400/50 hover:bg-slate-700/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-emerald-400/10"
+              >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-medium capitalize text-slate-200 group-hover/item:text-white transition-colors"
+                  >
+                    {{ item.key }}
+                  </span>
+                  <span
+                    class="px-3 py-1.5 bg-emerald-400/10 border border-emerald-400/30 rounded-full text-emerald-400 text-sm font-semibold group-hover/item:bg-emerald-400/20 group-hover/item:border-emerald-400/50 transition-all"
+                  >
+                    {{ item.value }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- Person Profile Card -->
-<div class="max-w-sm mx-auto">
-  <div
-    class="bg-gradient-to-br from-purple-900/90 to-indigo-900/90 backdrop-blur-xl rounded-3xl border border-green-400/30 shadow-2xl overflow-hidden hover:shadow-green-400/20 hover:shadow-2xl transition-all duration-500 hover:scale-105"
-  >
-    <!-- Profile Image Section -->
-    <div class="px-8 pt-8 flex justify-center">
-      <div class="relative group">
-        <!-- Glowing ring around image -->
+    <!-- Person Profile Card -->
+    <div class="group">
+      <div
+        class="relative bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl overflow-hidden hover:border-emerald-400/50 transition-all duration-500 hover:shadow-emerald-400/10 hover:shadow-2xl hover:scale-[1.01]"
+      >
+        <!-- Glow effect background -->
         <div
-          class="absolute inset-0 rounded-full bg-gradient-to-r from-green-400 to-cyan-400 p-1 animate-pulse"
-        >
-          <div class="bg-purple-900 rounded-full w-full h-full"></div>
-        </div>
+          class="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-transparent to-emerald-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></div>
 
-        <img
-          [src]="person.img"
-          [alt]="person.name"
-          class="relative z-10 rounded-full w-32 h-32 object-cover border-4 border-green-400/50 group-hover:border-green-400 transition-all duration-300 group-hover:scale-110"
-        />
+        <!-- Top accent line -->
+        <div
+          class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent"
+        ></div>
 
-        <!-- Status indicator -->
-        <div class="absolute -bottom-2 -right-2 z-20">
+        <div class="relative z-10 p-8">
+          <!-- Profile Header -->
+          <div class="flex items-start gap-6 mb-8">
+            <!-- Profile Image -->
+            <div class="relative group/avatar flex-shrink-0">
+              <!-- Glowing ring -->
+              <div
+                class="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400 to-purple-400 p-1 animate-pulse opacity-75 group-hover/avatar:opacity-100 transition-opacity"
+              >
+                <div class="bg-slate-800 rounded-full w-full h-full"></div>
+              </div>
+
+              <img
+                [src]="person.img"
+                [alt]="person.name"
+                class="relative z-10 rounded-full w-24 h-24 object-cover border-2 border-emerald-400/50 group-hover/avatar:border-emerald-400 transition-all duration-300 group-hover/avatar:scale-110"
+              />
+
+              <!-- Status indicator -->
+              <div class="absolute -bottom-1 -right-1 z-20">
+                <div
+                  class="w-6 h-6 rounded-full border-3 border-slate-800 flex items-center justify-center"
+                  [ngClass]="{
+                    'bg-emerald-400 shadow-emerald-400/50 shadow-lg': person.status === 'online',
+                    'bg-red-500 shadow-red-500/50 shadow-lg': person.status === 'offline',
+                    'bg-yellow-400 shadow-yellow-400/50 shadow-lg': person.status === 'away'
+                  }"
+                >
+                  <div class="w-2 h-2 rounded-full bg-white/80"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Info -->
+            <div class="flex-1 space-y-4">
+              <h2
+                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-purple-400"
+              >
+                {{ person.name }}
+              </h2>
+              <p class="text-slate-300 leading-relaxed">
+                {{ person.bio }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <!-- Status -->
+            <div
+              class="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700/50 p-4 hover:border-emerald-400/30 transition-all"
+            >
+              <div class="text-center space-y-2">
+                <div class="text-slate-400 text-sm font-medium">Status</div>
+                <span
+                  class="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide"
+                  [ngClass]="{
+                    'bg-emerald-400 text-black shadow-emerald-400/30 shadow-lg':
+                      person.status === 'online',
+                    'bg-red-500 text-white shadow-red-500/30 shadow-lg':
+                      person.status === 'offline',
+                    'bg-yellow-400 text-black shadow-yellow-400/30 shadow-lg':
+                      person.status === 'away'
+                  }"
+                >
+                  {{ person.status | uppercase }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Age -->
+            <div
+              class="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700/50 p-4 hover:border-emerald-400/30 transition-all"
+            >
+              <div class="text-center space-y-2">
+                <div class="text-slate-400 text-sm font-medium">Âge</div>
+                <div class="text-emerald-400 font-bold text-2xl">{{ person.age }}</div>
+              </div>
+            </div>
+
+            <!-- Reputation -->
+            <div
+              class="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700/50 p-4 hover:border-emerald-400/30 transition-all"
+            >
+              <div class="text-center space-y-2">
+                <div class="text-slate-400 text-sm font-medium">Réputation</div>
+                <div class="flex items-center justify-center gap-2">
+                  <span class="text-yellow-400 text-lg">⭐</span>
+                  <span
+                    class="px-2 py-1 bg-emerald-400/10 border border-emerald-400/30 rounded-full text-emerald-400 text-sm font-semibold"
+                  >
+                    {{ person.reputation }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Edit Form -->
           <div
-            class="w-8 h-8 rounded-full border-4 border-purple-900 flex items-center justify-center"
-            [ngClass]="{
-              'bg-green-400': person.status === 'online',
-              'bg-red-500': person.status === 'offline',
-              'bg-yellow-400': person.status === 'away'
-            }"
+            class="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700/50 p-6 hover:border-emerald-400/30 transition-all"
           >
-            <div class="w-3 h-3 rounded-full bg-white opacity-80"></div>
+            <h3 class="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
+              <span class="text-emerald-400">✏️</span>
+              Modifier le profil
+            </h3>
+
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label class="text-slate-400 text-sm font-medium">Nom</label>
+                <input
+                  type="text"
+                  [(ngModel)]="person.name"
+                  name="name"
+                  class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-3 py-2 text-slate-200 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/50 transition-all"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-slate-400 text-sm font-medium">Status</label>
+                <input
+                  type="text"
+                  [(ngModel)]="person.status"
+                  name="status"
+                  class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-3 py-2 text-slate-200 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/50 transition-all"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-slate-400 text-sm font-medium">Âge</label>
+                <input
+                  type="number"
+                  [(ngModel)]="person.age"
+                  name="age"
+                  class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-3 py-2 text-slate-200 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/50 transition-all"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-slate-400 text-sm font-medium">Réputation</label>
+                <input
+                  type="text"
+                  [(ngModel)]="person.reputation"
+                  name="reputation"
+                  class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-3 py-2 text-slate-200 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/50 transition-all"
+                />
+              </div>
+
+              <div class="md:col-span-2 space-y-2">
+                <label class="text-slate-400 text-sm font-medium">Bio</label>
+                <textarea
+                  [(ngModel)]="person.bio"
+                  name="bio"
+                  rows="3"
+                  class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-3 py-2 text-slate-200 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400/50 transition-all resize-none"
+                ></textarea>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Card Content -->
-    <div class="p-8 pt-6 text-center space-y-6">
-      <!-- Name -->
-      <h2
-        class="text-2xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent"
-      >
-        {{ person.name }}
-      </h2>
-
-      <!-- Bio -->
-      <p class="text-gray-300 text-sm leading-relaxed font-medium">
-        {{ person.bio }}
-      </p>
-
-      <!-- Stats Grid -->
-      <div class="space-y-4 pt-4 border-t border-green-400/20">
-        <!-- Status -->
-        <div
-          class="flex justify-between items-center p-3 bg-purple-800/30 rounded-xl border border-green-400/10"
-        >
-          <span class="font-semibold text-gray-200">Status</span>
-          <span
-            class="px-3 py-1 rounded-full text-xs font-bold tracking-wide"
-            [ngClass]="{
-              'bg-green-400 text-black shadow-green-400/50 shadow-lg': person.status === 'online',
-              'bg-red-500 text-white shadow-red-500/50 shadow-lg': person.status === 'offline',
-              'bg-yellow-400 text-black shadow-yellow-400/50 shadow-lg': person.status === 'away'
-            }"
-          >
-            {{ person.status | uppercase }}
-          </span>
-        </div>
-
-        <!-- Age -->
-        <div
-          class="flex justify-between items-center p-3 bg-purple-800/30 rounded-xl border border-green-400/10"
-        >
-          <span class="font-semibold text-gray-200">Âge</span>
-          <span class="text-green-400 font-bold text-lg">{{ person.age }}</span>
-        </div>
-
-        <!-- Reputation -->
-        <div
-          class="flex justify-between items-center p-3 bg-purple-800/30 rounded-xl border border-green-400/10"
-        >
-          <span class="font-semibold text-gray-200">Réputation</span>
-          <div class="flex items-center gap-2">
-            <span class="text-yellow-400 text-lg">⭐</span>
-            <span
-              class="px-3 py-1 bg-green-400/15 border border-green-400/40 rounded-full text-green-400 text-sm font-bold"
-            >
-              {{ person.reputation }}
-            </span>
-          </div>
-        </div>
-      </div>
-      <form>
-        <input type="text" [(ngModel)]="person.name" name="name" />
-        <input type="text" [(ngModel)]="person.status" name="status" />
-        <input type="number" [(ngModel)]="person.age" name="age" />
-        <input type="text" [(ngModel)]="person.reputation" name="reputation" />
-        <input type="text" [(ngModel)]="person.bio" name="bio" />
-      </form>
     </div>
   </div>
 </div>
