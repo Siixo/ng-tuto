@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface Hobbies {
   reading: string;
@@ -17,7 +18,8 @@ interface Person {
 }
 @Component({
   selector: 'app-text-interpolation',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './text-interpolation.component.html',
   styleUrl: './text-interpolation.component.css',
 })

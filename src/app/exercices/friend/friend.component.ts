@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-friend',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './friend.component.html',
   styleUrls: ['./friend.component.css'],
 })
 export class FriendComponent {
-  listFriendsCreationStatus: string = 'Aucun ami';
-  typedText: string = '';
-  isButtonDisabled: boolean = false;
+  listFriendsCreationStatus = 'Aucun ami';
+  textInput = ''; // <-- must exist
+  isButtonDisabled = false;
 
   constructor() {
     setTimeout(() => {
@@ -16,12 +20,8 @@ export class FriendComponent {
     }, 10000);
   }
 
-  onInputKeyup(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.typedText = input.value;
-  }
-
   onAddFriend() {
-    this.listFriendsCreationStatus = 'Votre ami a été ajouté ! 🥳 ';
+    this.listFriendsCreationStatus = `Votre ami "${this.textInput}" a été ajouté ! 🥳`;
+    this.textInput = '';
   }
 }

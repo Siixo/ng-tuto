@@ -1,60 +1,172 @@
-<div>
-  <div class="max-w-lg mx-auto mt-10 p-6 bg-base-200 rounded-xl shadow-lg space-y-4">
-    <h1 class="text-3xl font-bold text-primary">{{ title }}</h1>
+<!-- Main Profile Card -->
+<div class="max-w-lg mx-auto mb-8">
+  <div
+    class="bg-gradient-to-br from-purple-900/90 to-indigo-900/90 backdrop-blur-xl rounded-3xl border border-green-400/30 shadow-2xl p-8 relative overflow-hidden hover:shadow-green-400/20 hover:shadow-2xl transition-all duration-500"
+  >
+    <!-- Animated glow border -->
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/10 to-transparent rounded-3xl animate-pulse"
+    ></div>
+    <div
+      class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-400 to-transparent"
+    ></div>
 
-    <p class="text-base-content/80">{{ description }}</p>
-    <p class="text-sm text-base-content/60">📅 {{ currentDate }}</p>
-    <p class="font-medium text-secondary">👤 {{ username }}</p>
+    <div class="relative z-10 space-y-6">
+      <!-- Title -->
+      <h1
+        class="text-4xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg"
+      >
+        {{ title }}
+      </h1>
 
-    <div class="mt-4">
-      <h2 class="text-lg font-semibold mb-2">Mes hobbies</h2>
-      <ul class="space-y-2">
-        <li
-          *ngFor="let item of hobbies | keyvalue"
-          class="flex items-center justify-between p-3 bg-base-100 rounded-lg border border-base-300 hover:bg-base-300 transition"
-        >
-          <span class="font-medium capitalize">{{ item.key }}</span>
-          <span class="badge badge-outline badge-primary">{{ item.value }}</span>
-        </li>
-      </ul>
+      <!-- Description -->
+      <p class="text-gray-200 text-lg leading-relaxed font-medium">
+        {{ description }}
+      </p>
+
+      <!-- Date -->
+      <div class="flex items-center gap-2 text-sm text-gray-400">
+        <span class="text-green-400">📅</span>
+        <span>{{ currentDate }}</span>
+      </div>
+
+      <!-- Username -->
+      <div class="flex items-center gap-3">
+        <span class="text-green-400 text-xl">👤</span>
+        <span class="font-bold text-green-400 text-lg tracking-wide">{{ username }}</span>
+      </div>
+
+      <!-- Hobbies Section -->
+      <div class="pt-4 border-t border-green-400/20">
+        <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+          <span class="text-green-400 text-xl">🎯</span>
+          <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+            >Mes hobbies</span
+          >
+        </h2>
+
+        <ul class="space-y-3">
+          <li
+            *ngFor="let item of hobbies | keyvalue"
+            class="flex items-center justify-between p-4 bg-purple-800/30 rounded-xl border border-green-400/20 hover:border-green-400/50 hover:bg-purple-700/40 transition-all duration-300 group hover:scale-[1.02] hover:shadow-lg hover:shadow-green-400/10"
+          >
+            <span
+              class="font-semibold capitalize text-gray-200 group-hover:text-white transition-colors"
+            >
+              {{ item.key }}
+            </span>
+            <span
+              class="px-3 py-1.5 bg-green-400/15 border border-green-400/40 rounded-full text-green-400 text-sm font-bold tracking-wide group-hover:bg-green-400/25 group-hover:text-green-300 transition-all"
+            >
+              {{ item.value }}
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="max-w-sm mx-auto mt-10 card bg-base-200 shadow-xl">
-    <figure class="px-6 pt-6">
-      <img [src]="person.img" [alt]="person.name" class="rounded-xl w-32 h-32 object-cover" />
-    </figure>
-    <div class="card-body items-center text-center">
-      <h2 class="card-title text-primary">{{ person.name }}</h2>
-      <p class="text-sm text-base-content/70">{{ person.bio }}</p>
+<!-- Person Profile Card -->
+<div class="max-w-sm mx-auto">
+  <div
+    class="bg-gradient-to-br from-purple-900/90 to-indigo-900/90 backdrop-blur-xl rounded-3xl border border-green-400/30 shadow-2xl overflow-hidden hover:shadow-green-400/20 hover:shadow-2xl transition-all duration-500 hover:scale-105"
+  >
+    <!-- Profile Image Section -->
+    <div class="px-8 pt-8 flex justify-center">
+      <div class="relative group">
+        <!-- Glowing ring around image -->
+        <div
+          class="absolute inset-0 rounded-full bg-gradient-to-r from-green-400 to-cyan-400 p-1 animate-pulse"
+        >
+          <div class="bg-purple-900 rounded-full w-full h-full"></div>
+        </div>
 
-      <div class="mt-3 w-full space-y-2">
-        <div class="flex justify-between">
-          <span class="font-medium">Status</span>
-          <span
-            class="badge"
+        <img
+          [src]="person.img"
+          [alt]="person.name"
+          class="relative z-10 rounded-full w-32 h-32 object-cover border-4 border-green-400/50 group-hover:border-green-400 transition-all duration-300 group-hover:scale-110"
+        />
+
+        <!-- Status indicator -->
+        <div class="absolute -bottom-2 -right-2 z-20">
+          <div
+            class="w-8 h-8 rounded-full border-4 border-purple-900 flex items-center justify-center"
             [ngClass]="{
-              'badge-success': person.status === 'online',
-              'badge-error': person.status === 'offline',
-              'badge-warning': person.status === 'away'
+              'bg-green-400': person.status === 'online',
+              'bg-red-500': person.status === 'offline',
+              'bg-yellow-400': person.status === 'away'
             }"
           >
-            {{ person.status }}
-          </span>
-        </div>
-
-        <div class="flex justify-between">
-          <span class="font-medium">Âge</span>
-          <span>{{ person.age }}</span>
-        </div>
-
-        <div class="flex justify-between">
-          <span class="font-medium">Réputation</span>
-          <span class="badge badge-outline badge-secondary">
-            {{ person.reputation }}
-          </span>
+            <div class="w-3 h-3 rounded-full bg-white opacity-80"></div>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Card Content -->
+    <div class="p-8 pt-6 text-center space-y-6">
+      <!-- Name -->
+      <h2
+        class="text-2xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent"
+      >
+        {{ person.name }}
+      </h2>
+
+      <!-- Bio -->
+      <p class="text-gray-300 text-sm leading-relaxed font-medium">
+        {{ person.bio }}
+      </p>
+
+      <!-- Stats Grid -->
+      <div class="space-y-4 pt-4 border-t border-green-400/20">
+        <!-- Status -->
+        <div
+          class="flex justify-between items-center p-3 bg-purple-800/30 rounded-xl border border-green-400/10"
+        >
+          <span class="font-semibold text-gray-200">Status</span>
+          <span
+            class="px-3 py-1 rounded-full text-xs font-bold tracking-wide"
+            [ngClass]="{
+              'bg-green-400 text-black shadow-green-400/50 shadow-lg': person.status === 'online',
+              'bg-red-500 text-white shadow-red-500/50 shadow-lg': person.status === 'offline',
+              'bg-yellow-400 text-black shadow-yellow-400/50 shadow-lg': person.status === 'away'
+            }"
+          >
+            {{ person.status | uppercase }}
+          </span>
+        </div>
+
+        <!-- Age -->
+        <div
+          class="flex justify-between items-center p-3 bg-purple-800/30 rounded-xl border border-green-400/10"
+        >
+          <span class="font-semibold text-gray-200">Âge</span>
+          <span class="text-green-400 font-bold text-lg">{{ person.age }}</span>
+        </div>
+
+        <!-- Reputation -->
+        <div
+          class="flex justify-between items-center p-3 bg-purple-800/30 rounded-xl border border-green-400/10"
+        >
+          <span class="font-semibold text-gray-200">Réputation</span>
+          <div class="flex items-center gap-2">
+            <span class="text-yellow-400 text-lg">⭐</span>
+            <span
+              class="px-3 py-1 bg-green-400/15 border border-green-400/40 rounded-full text-green-400 text-sm font-bold"
+            >
+              {{ person.reputation }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <form>
+        <input type="text" [(ngModel)]="person.name" name="name" />
+        <input type="text" [(ngModel)]="person.status" name="status" />
+        <input type="number" [(ngModel)]="person.age" name="age" />
+        <input type="text" [(ngModel)]="person.reputation" name="reputation" />
+        <input type="text" [(ngModel)]="person.bio" name="bio" />
+      </form>
     </div>
   </div>
 </div>
