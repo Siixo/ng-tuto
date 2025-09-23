@@ -1,0 +1,16 @@
+<div class="p-4 space-y-4">
+  <input
+    type="text"
+    placeholder="Tapez un nom..."
+    class="input input-bordered w-full max-w-xs"
+    (keyup)="onInputKeyup($event)"
+  />
+
+  <p class="text-sm text-gray-500">Vous tapez : {{ typedText }}</p>
+
+  <button class="btn btn-primarym-4" (click)="onAddFriend()" [disabled]="isButtonDisabled">
+    Ajouter un ami
+  </button>
+
+  <p class="mt-2 font-semibold">{{ listFriendsCreationStatus }}</p>
+</div>

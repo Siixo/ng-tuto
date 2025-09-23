@@ -1,0 +1,60 @@
+<div>
+  <div class="max-w-lg mx-auto mt-10 p-6 bg-base-200 rounded-xl shadow-lg space-y-4">
+    <h1 class="text-3xl font-bold text-primary">{{ title }}</h1>
+
+    <p class="text-base-content/80">{{ description }}</p>
+    <p class="text-sm text-base-content/60">📅 {{ currentDate }}</p>
+    <p class="font-medium text-secondary">👤 {{ username }}</p>
+
+    <div class="mt-4">
+      <h2 class="text-lg font-semibold mb-2">Mes hobbies</h2>
+      <ul class="space-y-2">
+        <li
+          *ngFor="let item of hobbies | keyvalue"
+          class="flex items-center justify-between p-3 bg-base-100 rounded-lg border border-base-300 hover:bg-base-300 transition"
+        >
+          <span class="font-medium capitalize">{{ item.key }}</span>
+          <span class="badge badge-outline badge-primary">{{ item.value }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="max-w-sm mx-auto mt-10 card bg-base-200 shadow-xl">
+    <figure class="px-6 pt-6">
+      <img [src]="person.img" [alt]="person.name" class="rounded-xl w-32 h-32 object-cover" />
+    </figure>
+    <div class="card-body items-center text-center">
+      <h2 class="card-title text-primary">{{ person.name }}</h2>
+      <p class="text-sm text-base-content/70">{{ person.bio }}</p>
+
+      <div class="mt-3 w-full space-y-2">
+        <div class="flex justify-between">
+          <span class="font-medium">Status</span>
+          <span
+            class="badge"
+            [ngClass]="{
+              'badge-success': person.status === 'online',
+              'badge-error': person.status === 'offline',
+              'badge-warning': person.status === 'away'
+            }"
+          >
+            {{ person.status }}
+          </span>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="font-medium">Âge</span>
+          <span>{{ person.age }}</span>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="font-medium">Réputation</span>
+          <span class="badge badge-outline badge-secondary">
+            {{ person.reputation }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
