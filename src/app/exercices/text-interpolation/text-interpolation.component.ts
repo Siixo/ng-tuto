@@ -23,7 +23,7 @@ interface Person {
   templateUrl: './text-interpolation.component.html',
   styleUrl: './text-interpolation.component.css',
 })
-export class TextInterpolation {
+export class TextInterpolationComponent {
   title: string = 'Bienvenue dans notre super mega cours Angular';
   description: string =
     "La text interpolation vous permet d'afficher des données dynamiques dans votre template.";

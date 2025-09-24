@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TextInterpolation } from './text-interpolation/text-interpolation.component';
-import { FriendComponent } from './friend/friend.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-exercices',
   standalone: true,
-  imports: [CommonModule, TextInterpolation, FriendComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './exercices.component.html',
   styleUrls: ['./exercices.component.css'],
 })

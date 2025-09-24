@@ -4,12 +4,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer';
 import { CoursComponent } from './cours/cours.component';
 import { ExercicesComponent } from './exercices/exercices.component';
-import { TextInterpolation } from './exercices/text-interpolation/text-interpolation.component';
-import { FriendComponent } from './exercices/friend/friend.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, TextInterpolation, FriendComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

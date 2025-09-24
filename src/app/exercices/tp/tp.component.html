@@ -1,0 +1,18 @@
+<div class="flex flex-col justify-center items-center gap-4 m-4">
+  <button class="bg-white rounded-2xl p-2" (click)="changeButton()">
+    {{ isButtonOn ? 'Masquer les détails' : 'Afficher les détails' }}
+  </button>
+
+  <p class="text-white" [ngStyle]="{ opacity: isButtonOn ? '1' : '0', transition: 'opacity 0.5s' }">
+    Voici les détails supplémentaires que vous pouvez afficher ou masquer en cliquant sur le bouton
+    ci-dessus.
+  </p>
+
+  <div
+    *ngFor="let item of myList; let i = index"
+    class="flex flex-col justify-center items-center gap-4 m-4 rounded-2xl p-2"
+    [ngClass]="isFifthElement(i) ? 'bg-purple-500' : 'bg-purple-950'"
+  >
+    <p class="text-white">{{ item }}</p>
+  </div>
+</div>
