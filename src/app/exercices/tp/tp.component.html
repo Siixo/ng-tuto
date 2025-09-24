@@ -3,11 +3,14 @@
     {{ isButtonOn ? 'Masquer les détails' : 'Afficher les détails' }}
   </button>
 
+  <!-- Ici on checke si le bouton est activé, et on change l'opacité pour afficher p ou non en fonction de l'état du bouton-->
   <p class="text-white" [ngStyle]="{ opacity: isButtonOn ? '1' : '0', transition: 'opacity 0.5s' }">
     Voici les détails supplémentaires que vous pouvez afficher ou masquer en cliquant sur le bouton
     ci-dessus.
   </p>
 
+  <!-- Je voulais changer le background de la div parent mais je n'ai pas trouvé de solutions qui n'impliquait pas de ngfor nestés. 
+   ON fait donc un ngFor ici en récupérant l'index pour "isFifthElement"-->
   <div
     *ngFor="let item of myList; let i = index"
     class="flex flex-col justify-center items-center gap-4 m-4 rounded-2xl p-2"
