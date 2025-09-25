@@ -1,11 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CoursComponent } from './cours/cours.component';
-import { ExercicesComponent } from './exercices/exercices.component';
-
-import { FriendComponent } from './exercices/friend/friend.component';
-// import { ParentComponent } from './exercices/parent/parent.component';
-import { TaskListFirebaseComponent } from './exercices/task-list-firebase/task-list-firebase.component';
 import { RegisterComponent } from './exercices/auth/register/register.component';
 import { LoginComponent } from './exercices/auth/login/login.component';
 import { Exercice1Component } from './exercices/exercice1/exercice1.component';

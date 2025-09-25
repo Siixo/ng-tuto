@@ -1,3 +1,45 @@
-<p>
-  exercice4 works!
-</p>
+<section class="p-6 max-w-5xl mx-auto">
+  <div class="bg-[#1a1b26] border border-white/5 rounded-2xl shadow-lg p-6">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-semibold text-gray-100">Liste des Pokémon (Gen 1)</h2>
+      <span
+        class="px-3 py-1 text-sm font-medium rounded-full border border-white/10 bg-purple-900/30 text-purple-200"
+      >
+        Gen 1
+      </span>
+    </div>
+
+    <div *ngIf="pokemons.length === 0" class="text-center py-12 text-purple-200">Chargement...</div>
+
+    <ul *ngIf="pokemons.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <li
+        *ngFor="let pokemon of pokemons"
+        class="flex items-center gap-4 p-4 rounded-xl bg-[#16161e]/70 border border-white/5 transition transform hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div
+          class="flex-none w-20 h-20 grid place-items-center rounded-lg border border-[#39FF14] shadow-[0_0_12px_rgba(57,255,20,0.6)] bg-[#1a1b26]/50"
+        >
+          <img
+            [src]="pokemon.image"
+            [alt]="pokemon.name"
+            class="w-16 h-16 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
+          />
+        </div>
+        <div>
+          <div class="text-xs text-gray-400">#{{ pokemon.id }}</div>
+          <div class="text-lg font-medium text-gray-100">{{ pokemon.name }}</div>
+          <div class="text-xs text-gray-500 mt-1">Pokémon</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<div class="flex justify-center mt-8">
+  <a
+    routerLink="/exercice5"
+    class="w-48 w-48 flex justify-center items-center gap-2 px-6 py-3 rounded-full bg-[#1a1b26] border border-[#39FF14] text-[#39FF14] font-semibold shadow-[0_0_12px_rgba(57,255,20,0.6)] hover:shadow-[0_0_20px_rgba(57,255,20,0.9)] hover:scale-105 transition-all duration-300 mb-4"
+  >
+    <span>Exercice Suivant</span>
+    <i class="fas fa-arrow-right"></i>
+  </a>
+</div>

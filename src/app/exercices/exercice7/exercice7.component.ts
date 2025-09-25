@@ -1,15 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Database, set, ref, push, onValue } from '@angular/fire/database';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+export interface Task {
+  title: string;
+  status: string;
+  name: string;
+  surname: string;
+  imageUrl: string;
+}
 
 @Component({
   selector: 'app-exercice7',
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './exercice7.component.html',
-  styleUrls: ['./exercice7.component.css']
+  styleUrls: ['./exercice7.component.css'],
 })
-export class Exercice7Component implements OnInit {
+export class Exercice7Component {
+  newTask: Task = {
+    title: '',
+    status: 'pending',
+    name: '',
+    surname: '',
+    imageUrl: '',
+  };
+  tasks: { title: ''; status: 'pending'; name: ''; surname: ''; imageUrl: '' }[] = []; // Liste des tâches
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private db: Database) {
+    const tasksRef = ref(this.db, 'tasks');
+    onValue(tasksRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data);
+      this.tasks = data ? Object.values(data) : [];
+      console.log(this.tasks);
+    });
   }
 
+  addTask() {
+    if (this.newTask.title.trim()) {
+      const tasksRef = ref(this.db, 'tasks');
+      const newTaskRef = push(tasksRef);
+      set(newTaskRef, this.newTask); // Enregistrer l'objet newTask
+      this.newTask = {
+        title: '',
+        status: 'pending',
+        name: '',
+        surname: '',
+        imageUrl: '',
+      }; // Réinitialiser le champ
+    }
+  }
 }

@@ -2,8 +2,6 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer';
-import { CoursComponent } from './cours/cours.component';
-import { ExercicesComponent } from './exercices/exercices.component';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 interface Hobbies {
   reading: string;
@@ -19,7 +20,7 @@ interface Person {
 @Component({
   selector: 'app-exercice1',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './exercice1.component.html',
   styleUrls: ['./exercice1.component.css'],
 })
