@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-tp',
-  templateUrl: './tp.component.html',
-  styleUrls: ['./tp.component.css'],
+  selector: 'app-exercice3',
+  templateUrl: './exercice3.component.html',
+  styleUrls: ['./exercice3.component.css'],
   imports: [CommonModule],
 })
-export class TpComponent {
+export class Exercice3Component {
   isButtonOn = false;
   myList: Array<Number> = [];
   i: number = 1; //On commence à 1 pour vérifier la condition "myList.length + i = 1" à [0] du tableau

@@ -1,0 +1,40 @@
+<div class="task-form flex flex-col justify-between items-center gap-4 text-white">
+  <h2>Liste des tâches</h2>
+  <input
+    [(ngModel)]="newTask.title"
+    placeholder="Titre de la tâche"
+    class="text-center border border-white"
+  />
+  <input [(ngModel)]="newTask.name" placeholder="Prénom" class="text-center border border-white" />
+  <input [(ngModel)]="newTask.surname" placeholder="Nom" class="text-center border border-white" />
+  <input
+    [(ngModel)]="newTask.imageUrl"
+    placeholder="URL de l'image"
+    class="text-center border border-white"
+  />
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    (click)="addTask()"
+  >
+    Ajouter une tâche
+  </button>
+</div>
+
+<div>
+  <ul class="text-white flex items-center gap-4 m-4">
+    <li
+      class="flex flex-col bg-purple-800 p-4 rounded-2xl justify-center items-center gap-2 border border-white"
+      *ngFor="let task of tasks"
+    >
+      <h3 class="text-lg font-bold">{{ task.title }}</h3>
+      <p>Status: {{ task.status }}</p>
+      <img
+        [src]="task.imageUrl"
+        alt="{{ task.title }}"
+        class="w-32 h-32 object-cover rounded-2xl border border-white"
+      />
+      <p>Nom: {{ task.name }}</p>
+      <p>Prénom: {{ task.surname }}</p>
+    </li>
+  </ul>
+</div>

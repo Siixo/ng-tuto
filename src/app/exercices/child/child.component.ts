@@ -5,7 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css'],
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent {
   // ? @Input c'est l'Equivalent des PROPS sur les autre frameworks
   // !Déclarer propriété obligatoire (cela ne peut pas être undefined)
   // @Input() message!: string;

@@ -17,13 +17,13 @@ interface Person {
   reputation: string;
 }
 @Component({
-  selector: 'app-text-interpolation',
+  selector: 'app-exercice1',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './text-interpolation.component.html',
-  styleUrl: './text-interpolation.component.css',
+  templateUrl: './exercice1.component.html',
+  styleUrls: ['./exercice1.component.css'],
 })
-export class TextInterpolationComponent {
+export class Exercice1Component {
   title: string = 'Bienvenue dans notre super mega cours Angular';
   description: string =
     "La text interpolation vous permet d'afficher des données dynamiques dans votre template.";
