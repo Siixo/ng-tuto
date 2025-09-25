@@ -2,7 +2,7 @@
 
 ###
 
-<h4 align="left">Salut Jeff!<br>L'exo 2 c'est censé être l'exo avcec l'API météo mais j'ai jamais réussi à l'afficher, je ne sais pas ce qui coince.<br>Je n'ai pas fait le dernier exo. <br>Très bon courage pour les 12 repo que tu vas te taper!</h4>
+<h4 align="left">Salut Jeff!<br>L'exo 2 c'est censé être l'exo avcec l'API météo mais j'ai jamais réussi à l'afficher, je ne sais pas ce qui coince.<br>Je n'ai pas fait le dernier exo. <br> J'ai utilisé de l'IA (claude) pour générer le design des exos une fois ces derniers finis, il a souvent rajouté du code en plus mais les exos ont étés fait legit. La seule triche à été pour l'intégration de l'icone log out une fois connectés. <br> Très bon courage pour les 12 repo que tu vas te taper!</h4>
 <p>PS: c'est marrant que Github reconnaisse un projet en vue mais quand c'est angular il dit juste que c'est TypeScript</p>
 ###
 
