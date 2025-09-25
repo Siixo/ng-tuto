@@ -7,7 +7,7 @@ import * as THREE from 'three';
   standalone: true,
   imports: [RouterLink], // ← Import manquant !
   template: `
-    <div class="relative h-screen overflow-hidden bg-black">
+    <div class="relative h-screen overflow-hidden">
       <!-- Canvas Three.js -->
       <canvas #threeCanvas class="absolute inset-0 w-full h-full"></canvas>
 
@@ -42,42 +42,25 @@ import * as THREE from 'three';
         <p
           class="text-xl md:text-2xl text-slate-200 font-light tracking-wide mb-4 max-w-2xl leading-relaxed drop-shadow-lg"
         >
-          Maîtrise le framework le plus puissant
+          L'exo 2 (méteo API) ne marche pas
         </p>
 
         <!-- Description -->
         <p class="text-slate-300 mb-12 max-w-lg text-center leading-relaxed drop-shadow-md">
-          Des cours interactifs et des exercices pratiques pour devenir expert
+          PS: Tu te doûtes bien que l'accueil à été fait avec l'IA
         </p>
 
         <!-- Boutons d'action -->
         <div class="flex flex-col sm:flex-row gap-4 mb-8">
           <button
-            routerLink="/cours"
+            routerLink="/exercice1"
             class="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-green-500/50 backdrop-blur-sm"
           >
             <i
               class="fas fa-play mr-2 group-hover:translate-x-1 transition-transform duration-300"
             ></i>
-            Commencer les cours
+            Exercices
           </button>
-          <button
-            routerLink="/exercices"
-            class="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-green-400/50 text-white hover:text-green-400 px-8 py-4 rounded-2xl font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm"
-          >
-            <i class="fas fa-code mr-2"></i>
-            Voir les exercices
-          </button>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div class="flex flex-col items-center space-y-2 animate-bounce">
-            <span class="text-white/60 text-sm">Découvrir</span>
-            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-              <div class="w-1 h-3 bg-green-400 rounded-full mt-2 animate-ping"></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
