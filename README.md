@@ -3,7 +3,7 @@
 ###
 
 <h4 align="left">Salut Jeff!<br>L'exo 2 c'est censé être l'exo avcec l'API météo mais j'ai jamais réussi à l'afficher, je ne sais pas ce qui coince.<br>Je n'ai pas fait le dernier exo. <br>Très bon courage pour les 12 repo que tu vas te taper!</h4>
-
+<p>PS: c'est marrant que Github reconnaisse un projet en vue mais quand c'est angular il dit juste que c'est TypeScript</p>
 ###
 
 <p align="left">Language utilisé:</p>
